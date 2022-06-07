@@ -51,7 +51,7 @@ services:
   my-prometheus:
     image: prom/prometheus:latest
     volumes:
-      - ./Monitor/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./monitor/prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
@@ -61,9 +61,9 @@ services:
   my-grafana:
     image: grafana/grafana:8.3.6
     volumes:
-      - ./Monitor/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./Monitor/dashboard-provider.yml:/etc/grafana/provisioning/dashboards/dashboard-provider.yml
-      - ./Monitor/Dashboard:/var/lib/grafana/dashboards
+      - ./monitor/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./monitor/dashboard-provider.yml:/etc/grafana/provisioning/dashboards/dashboard-provider.yml
+      - ./monitor/Dashboard:/var/lib/grafana/dashboards
       
     depends_on:
       - my-prometheus
