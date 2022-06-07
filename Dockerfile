@@ -9,6 +9,7 @@ COPY ./package.json /app/
 WORKDIR /app/
 
 RUN npm install
+RUN npm install dotenv 
 
 EXPOSE 3030
 
